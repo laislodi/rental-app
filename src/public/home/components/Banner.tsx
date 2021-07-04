@@ -9,13 +9,13 @@ function Banner(props: { id: string }) {
             <h1>Jacir & Brianne Lodi</h1>
             <p className="lead text-muted">O melhor prédio da cidade</p>
             <p>
-              <a href="#nossas-unidades" className="btn my-2">Veja nossas unidades</a>
+              <a href="/nossas-unidades" className="btn my-2">Veja nossas unidades</a>
             </p>
           </div>
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default Banner;

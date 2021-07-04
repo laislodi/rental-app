@@ -1,12 +1,17 @@
 import React from 'react';
-import CardAlbum from './CardAlbum';
-import {album_mock} from './types/types';
+import ApartmentCardAlbum from './ApartmentCardAlbum';
+import {highlightedApartments} from '../../queries/useQueryHighlightedApartments';
 
-function Units(props : { id: string }) {
+type UnitsProps = {
+  id: string,
+  album: highlightedApartments[]
+}
+
+const Units: React.FC<UnitsProps> = ({id, album} : UnitsProps ) => {
   return (
-    <div className="py-5" id={props.id}>
+    <div className="pt-5" id={id}>
       <h1>Nossas Unidades</h1>
-      <CardAlbum cards={album_mock}/>
+      <ApartmentCardAlbum apartmentCards={album}/>
     </div>
   );
 }

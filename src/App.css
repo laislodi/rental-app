@@ -2,8 +2,23 @@ nav .navbar-brand {
     padding: 0 0 0 0;
 }
 
+body {
+    padding-top: 85px;
+}
+
+footer {
+    margin-top: 60px;
+}
+
+footer .footer-list li>a.active {
+    color: grey;
+}
+
+nav.navbar .navbar-nav .navbar-item .nav-link.active {
+    color: #8e0000;
+}
+
 .banner {
-    margin-top: 85px;
     background-image: url("https://www.winnipegarchitecture.ca/wp-content/uploads/2012/11/IMG_1853.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,6 +47,7 @@ nav .navbar-brand {
 h1 {
     color: #8e0000;
     text-align: center;
+    margin: 20px;
 }
 
 footer .icon {

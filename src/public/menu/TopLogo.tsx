@@ -6,6 +6,6 @@ function TopLogo (props: {logo: string, linkTo: string}) {
       <img className="logo-nav" src={props.logo}/>
     </a>
   );
-};
+}
 
 export default TopLogo;

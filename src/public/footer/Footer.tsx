@@ -1,6 +1,7 @@
 import facebookLogo from '../../images/Facebook-128.webp';
 import instagramLogo from '../../images/instagram-128.webp';
 import whatsappLogo from '../../images/whatsapp--v1.png';
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
@@ -8,11 +9,11 @@ function Footer() {
       <div className="container">
         <div className="row py-3">
           <div className="col-md-6 col-sm-12 text-align-sm-left">
-            <ul className="list-unstyled text-light">
-              <li><a className="link-hover text-light">Início</a></li>
-              <li><a className="link-hover text-light">Sobre nós</a></li>
-              <li><a className="link-hover text-light">Nossas Unidades</a></li>
-              <li><a className="link-hover text-light">Contato</a></li>
+            <ul className="list-unstyled text-light footer-list">
+              <li><NavLink activeClassName='active' className="link-hover" to='/' exact={true}>Início</NavLink></li>
+              <li><NavLink activeClassName='active'  className="link-hover" to='/sobre-nos'>Sobre nós</NavLink></li>
+              <li><NavLink activeClassName='active'  className="link-hover" to='/nossas-unidades'>Nossas Unidades</NavLink></li>
+              <li><NavLink activeClassName='active'  className="link-hover" to='/contato'>Contato</NavLink></li>
             </ul>
           </div>
 

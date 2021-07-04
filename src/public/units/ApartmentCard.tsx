@@ -1,14 +1,29 @@
 import React from 'react';
-import { ApartmentCardType } from './types/types'
+import { NavLink } from "react-router-dom";
+import { ApartmentImage } from '../../queries/useQueryHighlightedApartments'
 
-function ApartmentCard(props: ApartmentCardType) {
+type ApartmentCardProps = {
+  id: string,
+  description: string,
+  number: string,
+  images: ApartmentImage[]
+}
+
+function ApartmentCard({id, description, number, images}: ApartmentCardProps) {
   return (
-    <div className="col py-2">
+    <div id={id} className="col py-2">
       <div className="card">
-        <img src={props.imageUrl} className="card-img-top"/>
+        { images && images[0]
+          ? <NavLink exact={true} activeClassName='active' to={'/apartamento/' + number }>
+              <img alt='' src={images[0].url} className="card-img-top"/>
+            </NavLink>
+          : <img alt='' src='../../images/img_not_available.png' className="card-img-top"/>
+        }
         <div className="card-body">
-          <h5 className="card-title">Apartamento {props.apartmentNumber}</h5>
-          <p className="card-text">{props.text}</p>
+          <NavLink exact={true} activeClassName='active' to={'/apartamento/' + number }>
+            <h5 className="card-title">Apartamento {number}</h5>
+          </NavLink>
+          <p className="card-text">{description}</p>
         </div>
       </div>
     </div>
