@@ -44,6 +44,19 @@ nav.navbar .navbar-nav .navbar-item .nav-link.active {
     color: #8e0000;
 }
 
+.apartment-description {
+    margin-top: 15px;
+    font-size: medium;
+    color: darkgrey;
+    border-style: solid;
+    border-color: darkgrey;
+}
+
+.apartment-photo-album img {
+    width: 100%;
+    height: auto;
+}
+
 h1 {
     color: #8e0000;
     text-align: center;
