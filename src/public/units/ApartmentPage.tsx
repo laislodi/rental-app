@@ -1,12 +1,12 @@
 import React from 'react';
 import {useParams} from 'react-router';
-import {useQueryGetApartment} from '../../queries/useQueryGetApartment';
+import {useQueryGetApartmentByNumber} from '../../queries/useQueryGetApartmentByNumber';
 
 
 const ApartmentPage: React.FC = () => {
 
   const { number } = useParams<{ number: string}>();
-  const { loadingApartment, apartment } = useQueryGetApartment(number);
+  const { loadingApartment, apartment } = useQueryGetApartmentByNumber(number);
 
   if (loadingApartment) return <h1>Loading...</h1>
   if (!apartment) return <h1>NO APARTMENT...</h1>
@@ -20,13 +20,13 @@ const ApartmentPage: React.FC = () => {
             <div className='row'>
               <div className='col-8'>
                 <img key={apartment.images[0].id} src={apartment.images[0].url}
-                     alt={'apartment-' + apartment.number}/>
+                     alt={'apartment ' + apartment.number}/>
               </div>
               <div className='col-4'>
                 <div className='row'>
                   {
-                    apartment.images.map((image) => (
-                      <div className='col-6 p-1'>
+                    apartment.images.map((image, index) => (
+                      <div key={index} className='col-6 p-1'>
                         <img key={image.id} src={image.url}
                              alt={'apartment-' + apartment.number}/>
                       </div>

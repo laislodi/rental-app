@@ -1,25 +1,24 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import './App.css';
 import TopMenu from './public/menu/TopMenu';
 import Banner from './public/home/components/Banner';
 import Units from './public/units/Units';
-import Footer from './public/footer/Footer';
+import AboutUs from './public/aboutUs/AboutUs';
+import Footer, {FooterParameters} from './public/footer/Footer';
 import {useQueryHighlightedApartments} from './queries/useQueryHighlightedApartments';
 import Contactus from './public/contact/Contactus';
-import {useQueryAvailableApartments} from './queries/useQueryAvailableApartments';
 import ApartmentPage from './public/units/ApartmentPage';
+import { useQueryGetFootParameters } from "./queries/useQueryGetFootParameters";
 
 function App() {
 
   const { loadingHighlightedApartments, highlightedApartments } = useQueryHighlightedApartments();
-  const { loadingAvailableApartments, highlightedAvailableApartments } = useQueryAvailableApartments();
+  const { loading, parameter: parameters } = useQueryGetFootParameters();
 
-  if (loadingHighlightedApartments) return <div>Loading...</div>
+  if ( loadingHighlightedApartments || loading ) {
+    return <div>Loading...</div>
+  }
 
   return (
     <Router>
@@ -32,7 +31,7 @@ function App() {
             <Units id='units' album={highlightedApartments} />
           </Route>
           <Route path="/sobre-nos">
-            <About />
+            <AboutUs />
           </Route>
           <Route path="/contato">
             <Contactus />
@@ -45,13 +44,9 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <Footer />
+      <Footer parameters={parameters}/>
     </Router>
   );
-}
-
-const About: React.FC = () => {
-  return <h2>About</h2>;
 }
 
 export default App;

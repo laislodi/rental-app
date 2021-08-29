@@ -1,10 +1,10 @@
 import React from 'react';
 
-function SelectField(props: { key: string, label: string, Options: string[] }) {
+function SelectField(props: { key: string, label: string, Options: string[], onChange: any }) {
   return (
     <div className="col-12 py-2">
       <label htmlFor={props.key} className="form-label">{props.label}</label>
-      <select className="form-select" id={props.key} required>
+      <select className="form-select" id={props.key} required onChange={props.onChange} >
         {props.Options.map((option, index) => {
           let selected = false;
           if (index === 0)  selected = true;

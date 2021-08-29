@@ -63,6 +63,11 @@ h1 {
     margin: 20px;
 }
 
+form select {
+    margin: 10px;
+    width: 150px;
+}
+
 footer .icon {
     height: 20px;
     width: 20px;

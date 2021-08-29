@@ -3,7 +3,19 @@ import instagramLogo from '../../images/instagram-128.webp';
 import whatsappLogo from '../../images/whatsapp--v1.png';
 import { NavLink } from "react-router-dom";
 
-function Footer() {
+
+type SocialMediaType = {
+  text: string,
+  link: string
+}
+
+export type FooterParameters = {
+  telephone: string,
+  facebook: SocialMediaType,
+  instagram: SocialMediaType
+}
+
+function Footer(props: { parameters: FooterParameters } ) {
   return (
     <footer className="bg-dark">
       <div className="container">
@@ -20,21 +32,21 @@ function Footer() {
           <div className="col-md-6 col-sm-12 text-align-sm-right">
             <div className="row">
               <div className="col-12">
-                <a className="text-right" href="https://www.facebook.com/lais.lodi.1" target="_blank">
-                  <img className="icon" src={facebookLogo}/>
-                  Arminda Apartamentos
+                <a className="text-right" href={props.parameters.facebook.link} target="_blank" rel="noreferrer">
+                  <img className="icon" src={facebookLogo} alt={''} />
+                  {props.parameters.facebook.text}
                 </a>
               </div>
               <div className="col-12">
-                <a className="text-right" href="http://instagram.com" target="_blank">
-                  <img className="icon" src={instagramLogo}/>
-                  Arminda Apartamentos
+                <a className="text-right" href={props.parameters.instagram.link} target="_blank" rel="noreferrer">
+                  <img className="icon" src={instagramLogo} alt={''} />
+                  {props.parameters.instagram.text}
                 </a>
               </div>
               <div className="col-12">
-                <a className="text-right" href="https://web.whatsapp.com/" target="_blank">
-                  <img className="icon" src={whatsappLogo}/>
-                  (27) 99820-3636 (Vivo)
+                <a className="text-right" href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
+                  <img className="icon" src={whatsappLogo} alt={''} />
+                  {props.parameters.telephone}
                 </a>
               </div>
             </div>

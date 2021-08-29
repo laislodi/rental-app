@@ -22,8 +22,8 @@ const TopMenu: React.FC = () => {
         <TopLogo logo={logo} linkTo="/"/>
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav mb-1 mb-lg-0">
-            {menuItems.map((menuItem) => {
-              return <MenuItem text={menuItem.text} linkTo={menuItem.link} />
+            {menuItems.map((menuItem, index) => {
+              return <MenuItem key={index} text={menuItem.text} linkTo={menuItem.link} />
             })}
           </ul>
         </div>
