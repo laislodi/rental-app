@@ -1,50 +1,32 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
-import './App.css';
+import './public/styles/public.css';
 import TopMenu from './public/menu/TopMenu';
-import Banner from './public/home/components/Banner';
-import Units from './public/units/Units';
-import AboutUs from './public/aboutUs/AboutUs';
-import Footer, {FooterParameters} from './public/footer/Footer';
-import {useQueryHighlightedApartments} from './queries/useQueryHighlightedApartments';
-import Contactus from './public/contact/Contactus';
-import ApartmentPage from './public/units/ApartmentPage';
-import { useQueryGetFootParameters } from "./queries/useQueryGetFootParameters";
+import AboutUs from './public/pages/about-us/AboutUs';
+import Footer from './public/components/footer/Footer';
+import Contactus from './public/pages/contact-us/Contactus';
+import ApartmentPage from './public/pages/apartment-page/ApartmentPage';
+import AvailableApartments from "./public/pages/available-apartments/AvailableApartments";
+import HomePage from "./public/pages/home-page/HomePage";
+import PageNotFound from "./public/pages/page-not-found/PageNotFound";
+
 
 function App() {
 
-  const { loadingHighlightedApartments, highlightedApartments } = useQueryHighlightedApartments();
-  const { loading, parameter: parameters } = useQueryGetFootParameters();
-
-  if ( loadingHighlightedApartments || loading ) {
-    return <div>Loading...</div>
-  }
-
   return (
     <Router>
-      <div>
-        <TopMenu />
-
+      <TopMenu/>
+      <div className="page-content">
         <Switch>
-          <Route path="/" exact={true}>
-            <Banner id='#' />
-            <Units id='units' album={highlightedApartments} />
-          </Route>
-          <Route path="/sobre-nos">
-            <AboutUs />
-          </Route>
-          <Route path="/contato">
-            <Contactus />
-          </Route>
-          <Route path="/nossas-unidades">
-            <Units  id='units-page' album={highlightedApartments}/>
-          </Route>
-          <Route path="/apartamento/:number">
-            <ApartmentPage />
-          </Route>
+          <Route path="/" exact={true} component={HomePage} />
+          <Route path="/sobre-nos" component={AboutUs} />
+          <Route path="/contato" component={Contactus} />
+          <Route path="/nossas-unidades" component={AvailableApartments} />
+          <Route path="/apartamento/:apartmentNumber" component={ApartmentPage} />
+          <Route path="" component={PageNotFound} />
         </Switch>
       </div>
-      <Footer parameters={parameters}/>
+      <Footer/>
     </Router>
   );
 }

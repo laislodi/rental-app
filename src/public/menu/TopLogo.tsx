@@ -1,10 +1,11 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 function TopLogo (props: {logo: string, linkTo: string}) {
   return (
-    <a className="navbar-brand bg-light" href={props.linkTo}>
+    <NavLink activeClassName='active' className="link-hover" to='/'>
       <img className="logo-nav" src={props.logo} alt={''}/>
-    </a>
+    </NavLink>
   );
 }
 

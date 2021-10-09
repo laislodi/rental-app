@@ -1,0 +1,145 @@
+nav .navbar-brand {
+    padding: 0 0 0 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    padding-top: 85px;
+    height: 100%;
+}
+
+footer .footer-list li>a.active {
+    color: grey;
+}
+
+nav.navbar .navbar-nav .navbar-item .nav-link.active {
+    color: #8e0000;
+}
+
+.banner {
+    background-image: url("https://www.winnipegarchitecture.ca/wp-content/uploads/2012/11/IMG_1853.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    text-align: center;
+}
+
+.banner .opacity {
+    background-color: rgba(255,255,255, 0.9)
+}
+
+.banner button {
+    background-color: #8e0000;
+    color: white;
+}
+
+.banner button:hover {
+    background-color: #8e0000;
+    color: lightgray;
+    box-shadow: grey;
+}
+
+.banner h1 {
+    color: #8e0000;
+}
+
+.card-title {
+    color: #8e0000;
+}
+
+.apartment-description {
+    margin-top: 15px;
+    font-size: medium;
+    color: darkgrey;
+    border-style: solid;
+    border-color: darkgrey;
+}
+
+.apartment-photo-album img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #8e0000;
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+form select {
+    margin: 10px;
+    width: 150px;
+}
+
+.page-content {
+    flex: 1 0 auto;
+    padding-bottom: 60px;
+}
+
+.page-not-found {
+    background-image: url("../../common/assets/images/riley-sadness-emotion.jpg");
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: bottom right;
+    height: 100%;
+}
+
+h2 a {
+    text-decoration: none;
+}
+
+footer .icon {
+    height: 20px;
+    width: 20px;
+    margin: 5px 5px;
+}
+
+footer a {
+    color: white;
+    cursor: pointer;
+}
+
+footer a:hover {
+    color: white;
+    text-underline: white;
+}
+
+footer .text-align-sm-left {
+    text-align: left;
+}
+
+footer .text-align-sm-right {
+    text-align: right;
+}
+
+.loader {
+    border: 15px solid #f3f3f3;
+    border-top: 15px solid #8e0000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s running infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media screen and (max-width: 768px) {
+    footer .text-align-sm-left, footer .text-align-sm-right {
+        text-align: center;
+    }
+}

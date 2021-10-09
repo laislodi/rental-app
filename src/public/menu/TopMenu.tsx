@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/JacirBrianne_Logo_200x80.png';
+import logo from '../../common/assets/images/JacirBrianne_Logo_200x80.png';
 import MenuItem from './MenuItem';
 import TopLogo from './TopLogo';
 
@@ -20,7 +20,7 @@ const TopMenu: React.FC = () => {
     <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
       <div className="container-xl">
         <TopLogo logo={logo} linkTo="/"/>
-        <div className="collapse navbar-collapse" id="navbarContent">
+        <div className="collapse navbar-collapse">
           <ul className="navbar-nav mb-1 mb-lg-0">
             {menuItems.map((menuItem, index) => {
               return <MenuItem key={index} text={menuItem.text} linkTo={menuItem.link} />
